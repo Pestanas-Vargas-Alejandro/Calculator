@@ -6,11 +6,27 @@ const buttonClases = "btn btn-outline-secondary w-100 p-5"
 
 function App() {
   const [screen, setScreen] = useState('0')
-  const handleButtonClick = () => {
+  const handleButtonClick9 = () => {
     if (screen === '0') {
       setScreen(9)
     } else {
       setScreen (`${screen}9`)
+    }
+  }
+
+  const handleButtonClick8 = () => {
+    if (screen === '0') {
+      setScreen(8)
+    } else {
+      setScreen (`${screen}8`)
+    }
+  }
+
+  const handleButtonClick7 = () => {
+    if (screen === '0') {
+      setScreen(7)
+    } else {
+      setScreen (`${screen}7`)
     }
   }
 
@@ -36,9 +52,9 @@ function App() {
         </tr>
         {/*Three row*/}
         <tr>
-          <td> <button type='button' className={buttonsClases}>7</button></td>
-          <td> <button type='button' className={buttonsClases}>8</button></td>
-          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick} >9</button></td>
+          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick7} >7</button></td>
+          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick8} >8</button></td>
+          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick9} >9</button></td>
           <td rowSpan={2}> <button type='button' className={buttonClases}>+</button></td>
         </tr>
         {/*Four row*/}
