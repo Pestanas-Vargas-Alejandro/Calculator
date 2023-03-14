@@ -6,28 +6,18 @@ const buttonClases = "btn btn-outline-secondary w-100 p-5"
 
 function App() {
   const [screen, setScreen] = useState('0')
-  const handleButtonClick9 = () => {
-    if (screen === '0') {
-      setScreen(9)
-    } else {
-      setScreen (`${screen}9`)
+  const handleButtonClick = (e) => {
+    const {value} = e.target;
+    if (value === 'C'){
+      setScreen('0')
+      return;
     }
-  }
-
-  const handleButtonClick8 = () => {
-    if (screen === '0') {
-      setScreen(8)
+    console.log('Click')
+   if (screen === '0') {
+      setScreen(value)
     } else {
-      setScreen (`${screen}8`)
-    }
-  }
-
-  const handleButtonClick7 = () => {
-    if (screen === '0') {
-      setScreen(7)
-    } else {
-      setScreen (`${screen}7`)
-    }
+      setScreen (`${screen} ${value}`)
+    } 
   }
 
   return (
@@ -45,29 +35,29 @@ function App() {
         </tr>
         {/*Second row*/}
         <tr>
-          <td> <button type='button' className={buttonsClases}> C</button> </td>
+          <td> <button type='button' className={buttonsClases} value = "C" onClick = {(e) => {handleButtonClick (e)}} >C</button> </td>
           <td> <button type='button' className={buttonsClases}>/</button></td>
           <td> <button type='button' className={buttonsClases}>*</button></td>
           <td> <button type='button' className={buttonsClases}>-</button></td>
         </tr>
         {/*Three row*/}
         <tr>
-          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick7} >7</button></td>
-          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick8} >8</button></td>
-          <td> <button type='button' className={buttonsClases} onClick = {handleButtonClick9} >9</button></td>
+          <td> <button type='button' className={buttonsClases} value = "7" onClick = {(e) => {handleButtonClick (e)}} >7</button></td>
+          <td> <button type='button' className={buttonsClases} value = "8"  onClick = {(e) => {handleButtonClick (e)}} >8</button></td>
+          <td> <button type='button' className={buttonsClases} value = "9" onClick = {(e) => {handleButtonClick (e)}} >9</button></td>
           <td rowSpan={2}> <button type='button' className={buttonClases}>+</button></td>
         </tr>
         {/*Four row*/}
         <tr>
-          <td> <button type='button' className={buttonsClases}>4</button></td>
-          <td> <button type='button' className={buttonsClases}>5</button></td>
-          <td> <button type='button' className={buttonsClases}>6</button></td>
+          <td> <button type='button' className={buttonsClases} value = "4" onClick = {(e) => {handleButtonClick (e)}} >4</button></td>
+          <td> <button type='button' className={buttonsClases} value = "5" onClick = {(e) => {handleButtonClick (e)}} >5</button></td>
+          <td> <button type='button' className={buttonsClases} value = "6" onClick = {(e) => {handleButtonClick (e)}} >6</button></td>
         </tr>
         {/*Five row*/}
         <tr>
-          <td> <button type='button' className={buttonsClases}>1</button></td>
-          <td> <button type='button' className={buttonsClases}>2</button></td>
-          <td> <button type='button' className={buttonsClases}>3</button></td>
+          <td> <button type='button' className={buttonsClases} value = "1" onClick = {(e) => {handleButtonClick (e)}} >1</button></td>
+          <td> <button type='button' className={buttonsClases} value = "2" onClick = {(e) => {handleButtonClick (e)}} >2</button></td>
+          <td> <button type='button' className={buttonsClases} value = "3" onClick = {(e) => {handleButtonClick (e)}} >3</button></td>
           <td rowSpan={2}> <button type='button' className={buttonClases}>=</button></td>
         </tr>
         {/*Six row*/}
