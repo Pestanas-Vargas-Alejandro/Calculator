@@ -8,16 +8,40 @@ function App() {
   const [screen, setScreen] = useState('0')
   const handleButtonClick = (e) => {
     const {value} = e.target;
+    /* if (value === '.') {
+      if (screen.indexOf(value) !== -1)
+      return;
+    } METODO MEDIANTE INDEX OF*/
+
+    if (value === '.') {
+      if (screen.includes('.'))
+      return;
+    } /*METODO MEDIANTE INCLUDE*/
+
     if (value === 'C'){
       setScreen('0')
       return;
     }
     console.log('Click')
-   if (screen === '0') {
+   if (screen === '0' && value !== '.') {
       setScreen(value)
     } else {
       setScreen (`${screen} ${value}`)
     } 
+  }
+
+  const handleDelButtonClick = () => {
+    /*if (screen.length === 1) {
+      setScreen('0')
+    }else{
+      setScreen(screen.slice (0, -1))
+    } METODO CON ELSE */ 
+
+    if (screen.length === 1) {
+      setScreen('0')
+      return;
+    }
+    setScreen(screen.slice (0, -1)) /* METODO SIN ELSE */
   }
 
   return (
@@ -62,9 +86,9 @@ function App() {
         </tr>
         {/*Six row*/}
         <tr>
-          <td colSpan={1}> <button type='button' className={buttonsClases}>Del</button></td>
-          <td> <button type='button' className={buttonsClases}>0</button> </td>
-          <td> <button type='button' className={buttonsClases}>.</button> </td>
+          <td colSpan={1}> <button type='button' className={buttonsClases} onClick = {handleDelButtonClick} >Del</button></td>
+          <td> <button type='button' className={buttonsClases} value = "0" onClick = {(e) => {handleButtonClick (e)}} >0</button> </td>
+          <td> <button type='button' className={buttonsClases} value = "." onClick = {(e) => {handleButtonClick (e)}}>.</button> </td>
         </tr>
       </table>
     </div>
