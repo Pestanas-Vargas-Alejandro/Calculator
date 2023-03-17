@@ -5,6 +5,7 @@ const buttonsClases = "btn btn-outline-secondary w-100 p-3"
 const buttonClases = "btn btn-outline-secondary w-100 p-5"
 
 function App() {
+  const [operator, setOperator] = useState('')
   const [number1, setNumber1] = useState('')
   const [clearScreen, setClearScreen] = useState(false)
   const [screen, setScreen] = useState('0')
@@ -27,9 +28,7 @@ function App() {
     }
 
   /* APARTIR DE AQUI SE MUESTRA LO QUE PRESIONO EN PANTALLA*/
-  console.log ({number1});
     if (clearScreen){
-      console.log('cambia screen')
       setScreen(value);
       setClearScreen(false)
       return;
@@ -38,7 +37,7 @@ function App() {
    if (screen === '0' && value !== '.') {
       setScreen(value)
     } else {
-      setScreen (`${screen} ${value}`)
+      setScreen (`${screen}${value}`)
     } 
   }
 
@@ -57,18 +56,23 @@ function App() {
   }
 
   const handleOperationButtonClick = (e) => {
-    const operator = e.target.value;
+    setOperator (e.target.value)
+    setNumber1 (screen);
+    setClearScreen(true);
+  }
+
+  const handleEqualButtonClick = () => {
+    const a = +number1;
+    const b = +screen;
+    console.log(number1);
     switch (operator) {
       case '+':
-        setNumber1 (screen);
-        console.log('suma')
+        setScreen ((a + b).toString());
         break;
     
       default:
         break;
     }
-
-    setClearScreen(true);
   }
 
   return (
@@ -109,7 +113,7 @@ function App() {
           <td> <button type='button' className={buttonsClases} value = "1" onClick = {(e) => {handleButtonClick (e)}} >1</button></td>
           <td> <button type='button' className={buttonsClases} value = "2" onClick = {(e) => {handleButtonClick (e)}} >2</button></td>
           <td> <button type='button' className={buttonsClases} value = "3" onClick = {(e) => {handleButtonClick (e)}} >3</button></td>
-          <td rowSpan={2}> <button type='button' className={buttonClases}>=</button></td>
+          <td rowSpan={2}> <button type='button' className={buttonClases} onClick = {handleEqualButtonClick}>=</button></td>
         </tr>
         {/*Six row*/}
         <tr>
