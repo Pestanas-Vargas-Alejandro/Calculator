@@ -69,7 +69,15 @@ function App() {
       case '+':
         setScreen ((a + b).toString());
         break;
-    
+      case '-':
+          setScreen ((a - b).toString());
+        break;
+      case '*':
+          setScreen ((a * b).toString());
+        break;
+      case '/':
+          setScreen ((a / b).toString());
+        break;     
       default:
         break;
     }
@@ -91,9 +99,9 @@ function App() {
         {/*Second row*/}
         <tr>
           <td> <button type='button' className={buttonsClases} value = "C" onClick = {(e) => {handleButtonClick (e)}} >C</button> </td>
-          <td> <button type='button' className={buttonsClases}>/</button></td>
-          <td> <button type='button' className={buttonsClases}>*</button></td>
-          <td> <button type='button' className={buttonsClases}>-</button></td>
+          <td> <button type='button' className={buttonsClases} value = "/" onClick={(e) => handleOperationButtonClick (e)}>/</button></td>
+          <td> <button type='button' className={buttonsClases} value = "*" onClick={(e) => handleOperationButtonClick (e)}>*</button></td>
+          <td> <button type='button' className={buttonsClases} value = "-" onClick={(e) => handleOperationButtonClick (e)}>-</button></td>
         </tr>
         {/*Three row*/}
         <tr>
