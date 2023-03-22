@@ -1,4 +1,4 @@
-const Button = (classes, value, handleClick, style) => {
+const Button =({classes,value,handleClick,style})  => {
     return (
         <button 
             type='button'

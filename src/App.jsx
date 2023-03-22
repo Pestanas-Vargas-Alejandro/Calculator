@@ -85,6 +85,7 @@ function App() {
   }
 
   const buttonInfo = [
+    //Primera fila
     [
       {
         classes: buttonsClases,
@@ -118,6 +119,7 @@ function App() {
         rows: 1
       }
     ],
+    //Segunda fila
     [
       {
         classes: buttonsClases,
@@ -138,7 +140,7 @@ function App() {
       {
         classes: buttonsClases,
         value: '9',
-        handleClick: handleOperationButtonClick,
+        handleClick: handleButtonClick,
         style: {},
         rows: 1
       },
@@ -151,7 +153,8 @@ function App() {
         rows: 2
       }
     ],
-    [  
+    //Tercer fila
+    [
       {
         classes: buttonsClases,
         value: '4',
@@ -174,9 +177,10 @@ function App() {
         handleClick: handleButtonClick,
         style: {},
         rows: 1
-      }
+      },
     ],
-    [  
+    //Cuarta fila
+    [
       {
         classes: buttonsClases,
         value: '1',
@@ -209,11 +213,12 @@ function App() {
         rows: 2
       }
     ],
+    //Quinta fila
     [
       {
         classes: buttonsClases,
-        value: 'Del',
-        handleClick: handleButtonClick,
+        value: 'DEL',
+        handleClick: handleDelButtonClick,
         style: {},
         rows: 1
       },
@@ -232,13 +237,13 @@ function App() {
         handleClick: handleButtonClick,
         style: {},
         rows: 1
-      }
-    ]  
+      },
+    ],
   ]
 
   return (
-    <div className="position-absolute top-50 start-50 translate-middle">
-      <h1 class="text-center">Calculator</h1>
+    <div className="container mt-5">
+      <h1 >Calculator</h1>
       <table className="mt-5">
         {/*FIrst row*/}
         <tr>
@@ -250,25 +255,25 @@ function App() {
           </td>
         </tr>
         {
-        buttonInfo.map ((row) => {
-          return (
-            <tr>
-              {
-                row.map ((cell) => {
-                  return (
+          buttonInfo.map((row) => {
+            return(
+              <tr>
+                {
+                row.map((cell) => {
+                  return(
                     <td rowSpan={cell.rows}>
-                      <Button 
+                      <Button
                         classes={cell.classes}
                         value={cell.value}
-                        handleClick={cell.handleClick}
-                        style={cell.style} />
-                    </td>
-                  )
-                })
-              }
-            </tr>
-          )
-        })}
+                        handleClick = {cell.handleClick}
+                        style= {cell.style}
+                      />
+                  </td>)
+                })}
+              </tr>
+            )
+          })
+        }
       </table>
     </div>
   )
