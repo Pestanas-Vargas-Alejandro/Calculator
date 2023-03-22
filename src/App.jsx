@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Button from './components/Button';
 
 const buttonsClases = "btn btn-outline-secondary w-100 p-3"
 const buttonClases = "btn btn-outline-secondary w-100 p-5"
@@ -84,8 +85,8 @@ function App() {
   }
 
   return (
-    <div className="container mt-5">
-      <h1>Calculator</h1>
+    <div className="position-absolute top-50 start-50 translate-middle">
+      <h1 class="text-center">Calculator</h1>
       <table className="mt-5">
         {/*FIrst row*/}
         <tr>
@@ -106,7 +107,8 @@ function App() {
         {/*Three row*/}
         <tr>
           <td> <button type='button' className={buttonsClases} value = "7" onClick = {(e) => {handleButtonClick (e)}} >7</button></td>
-          <td> <button type='button' className={buttonsClases} value = "8"  onClick = {(e) => {handleButtonClick (e)}} >8</button></td>
+          <td> {/*<button type='button' className={buttonsClases} value = "8"  onClick = {(e) => {handleButtonClick (e)}} >8</button>*/}
+          <Button style={buttonsClases} handleClick ={handleButtonClick}/></td>
           <td> <button type='button' className={buttonsClases} value = "9" onClick = {(e) => {handleButtonClick (e)}} >9</button></td>
           <td rowSpan={2}> <button type='button' className={buttonClases} value = "+" onClick={(e) => handleOperationButtonClick (e)}>+</button></td>
         </tr>
